@@ -21,6 +21,8 @@ export default defineConfig({
         "**/*.d.ts",
         "**/src/main.tsx",
         "**/src/styles/GlobalStyle.ts",
+        "src/testUtils/customRenderProvider.tsx",
+        "src/store/hooks.ts",
       ],
     },
   },
