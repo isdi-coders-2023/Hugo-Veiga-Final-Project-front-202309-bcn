@@ -4,7 +4,7 @@ const NavBarStyled = styled.nav`
   .navbar {
     display: flex;
     gap: 8px;
-    color: ${({ theme }) => theme.color.detail};
+    color: ${({ theme }) => theme.color.detailDark};
   }
 
   .active {

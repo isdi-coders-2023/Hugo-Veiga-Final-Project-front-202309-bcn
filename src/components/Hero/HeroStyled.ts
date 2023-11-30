@@ -5,7 +5,7 @@ const HeroStyled = styled.div`
     &__image {
       display: flex;
       flex-direction: column;
-      background-image: url("public/images/hero.webp");
+      background-image: url("/images/hero.webp");
       height: 100vh;
       width: 100vw;
       align-self: center;
