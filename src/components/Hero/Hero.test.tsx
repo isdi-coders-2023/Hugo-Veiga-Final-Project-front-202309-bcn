@@ -19,7 +19,7 @@ describe("Given a Hero component", () => {
 
   test("Then it should show the background image in a div", () => {
     const accesibleNameDiv = "ink texture hero background image";
-    const expectedBackgroundImageUrl = "public/images/hero.webp";
+    const expectedBackgroundImageUrl = "/images/hero.webp";
 
     customRenderProvider(
       <ThemeProvider theme={mainTheme}>
