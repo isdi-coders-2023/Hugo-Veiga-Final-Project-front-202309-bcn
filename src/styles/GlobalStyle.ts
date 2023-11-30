@@ -51,7 +51,6 @@ button{
   font: inherit;
   cursor: pointer;
 }
-
 `;
 
 export default GlobalStyle;

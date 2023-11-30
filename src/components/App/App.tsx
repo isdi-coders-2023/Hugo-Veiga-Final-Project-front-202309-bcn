@@ -5,13 +5,11 @@ import TattoosPage from "../../pages/TattoosPage";
 const App = (): React.ReactElement => {
   return (
     <div className="app">
-      <>
-        <Header />
-        <Routes>
-          <Route path="/" element={<Navigate to="/tattoos" />} />
-          <Route path="/tattoos" element={<TattoosPage />} />
-        </Routes>
-      </>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Navigate to="/tattoos" />} />
+        <Route path="/tattoos" element={<TattoosPage />} />
+      </Routes>
     </div>
   );
 };
