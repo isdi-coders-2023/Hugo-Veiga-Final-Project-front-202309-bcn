@@ -8,7 +8,6 @@ const mainTheme: DefaultTheme = {
     detailDark: "#646464",
     detailLight: "#F4F4F4",
   },
-
   typography: {
     mainFont: "'Jura Variable', sans-serif",
   },
