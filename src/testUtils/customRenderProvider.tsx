@@ -5,6 +5,7 @@ import { Store } from "@reduxjs/toolkit";
 import { ThemeProvider } from "styled-components";
 import mainTheme from "../styles/mainTheme";
 import { store } from "../store";
+import GlobalStyle from "../styles/GlobalStyle";
 
 const customRenderProvider = (
   children: React.ReactElement,
@@ -13,7 +14,10 @@ const customRenderProvider = (
   return render(
     <BrowserRouter>
       <Provider store={mockedStore}>
-        <ThemeProvider theme={mainTheme}>{children}</ThemeProvider>
+        <ThemeProvider theme={mainTheme}>
+          <GlobalStyle />
+          {children}
+        </ThemeProvider>
       </Provider>
     </BrowserRouter>,
   );
