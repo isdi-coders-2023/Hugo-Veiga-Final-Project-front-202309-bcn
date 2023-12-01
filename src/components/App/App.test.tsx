@@ -4,6 +4,8 @@ import App from "./App";
 import { MemoryRouter } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import mainTheme from "../../styles/mainTheme";
+import { Provider } from "react-redux";
+import { store } from "../../store";
 
 describe("Given an App component", () => {
   describe("When is rendered", () => {
@@ -26,9 +28,11 @@ describe("Given an App component", () => {
 
     render(
       <MemoryRouter initialEntries={[{ pathname: expectedPathname }]}>
-        <ThemeProvider theme={mainTheme}>
-          <App />
-        </ThemeProvider>
+        <Provider store={store}>
+          <ThemeProvider theme={mainTheme}>
+            <App />
+          </ThemeProvider>
+        </Provider>
       </MemoryRouter>,
     );
 
