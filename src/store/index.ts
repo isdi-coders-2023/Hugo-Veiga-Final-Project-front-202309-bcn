@@ -1,7 +1,10 @@
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
+import { tattoosReducer } from "./features/tattoos/tattoosSlice";
 
 export const store = configureStore({
-  reducer: {},
+  reducer: {
+    tattoosState: tattoosReducer,
+  },
 });
 
 export type AppDispatch = typeof store.dispatch;
