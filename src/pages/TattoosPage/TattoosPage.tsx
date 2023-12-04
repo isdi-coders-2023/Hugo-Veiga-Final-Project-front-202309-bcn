@@ -1,6 +1,6 @@
-import Hero from "../components/Hero/Hero";
-import TattooCard from "../components/TattooCard/TattooCard";
-import tattoosMock from "../data/tattoosData";
+import Hero from "../../components/Hero/Hero";
+import TattooCard from "../../components/TattooCard/TattooCard";
+import tattoosMock from "../../data/tattoosData";
 import TattoosPageStyled from "./TattoosPageStyled";
 
 const TattoosPage = (): React.ReactElement => {
