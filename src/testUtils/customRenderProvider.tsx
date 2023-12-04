@@ -1,16 +1,14 @@
 import { render } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
-import { Store } from "@reduxjs/toolkit";
 import { ThemeProvider } from "styled-components";
 import mainTheme from "../styles/mainTheme";
-import { store } from "../store";
 import GlobalStyle from "../styles/GlobalStyle";
+import { getMockedStore } from "./customProvider";
 
-const customRenderProvider = (
-  children: React.ReactElement,
-  mockedStore: Store = store,
-) => {
+const customRenderProvider = (children: React.ReactElement) => {
+  const mockedStore = getMockedStore();
+
   return render(
     <BrowserRouter>
       <Provider store={mockedStore}>
