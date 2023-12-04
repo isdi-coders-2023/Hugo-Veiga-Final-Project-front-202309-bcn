@@ -8,10 +8,11 @@ const TattooCardStyled = styled.article`
   border-radius: 10px;
   border: 2px solid ${({ theme }) => theme.color.secondary};
   box-shadow: 0px 4px 8px 0px rgba(41, 41, 41, 0.08);
+  padding-bottom: 1rem;
 
   .tattooCard {
     display: flex;
-    gap: 10px;
+    gap: 1.2rem;
     flex-direction: column;
 
     &__image {
@@ -20,7 +21,7 @@ const TattooCardStyled = styled.article`
     }
 
     &__info {
-      padding: 12px;
+      padding: 0 12px;
       display: flex;
       gap: 10px;
       flex-direction: column;
@@ -31,6 +32,17 @@ const TattooCardStyled = styled.article`
       display: flex;
       align-items: start;
       justify-content: center;
+    }
+
+    &__toogleFavorite {
+      display: inline-flex;
+    }
+
+    &__icons {
+      display: inline-flex;
+      justify-content: space-around;
+      align-items: center;
+      padding-top: 10px;
     }
   }
 `;

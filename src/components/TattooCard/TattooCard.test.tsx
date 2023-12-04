@@ -27,4 +27,16 @@ describe("Given a FriendCard component", () => {
 
     expect(imageElement).toBeInTheDocument();
   });
+
+  test("Then it should show an icon with the alt text `toggle favorite tattoo` ", () => {
+    const missSitaTattoo = tattoosMock[0];
+
+    const expectedAltText = `toggle favorite tattoo`;
+
+    customRenderProvider(<TattooCard tattoo={missSitaTattoo} />);
+
+    const imageElement = screen.getByAltText(expectedAltText);
+
+    expect(imageElement).toBeInTheDocument();
+  });
 });
