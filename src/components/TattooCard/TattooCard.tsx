@@ -14,7 +14,7 @@ const TattooCard = ({
         <img
           className="tattooCard__image"
           src={image}
-          alt={`Tatuaje de ${artist}`}
+          alt={`${artist}'s tattoo`}
           width="280"
           height="222"
         />

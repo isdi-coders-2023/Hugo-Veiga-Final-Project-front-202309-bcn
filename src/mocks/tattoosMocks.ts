@@ -8,7 +8,7 @@ const tattoosMock: TattooStructure[] = [
     instagram: "@misssita",
     city: "Barcelona",
     style: "blackwork",
-    image: "https://i.ibb.co/9hvLv06/miss-Sita-tattoo.webp",
+    image: "https://i.ibb.co/W2DBhvK/miss-Sita-tattoo-1.webp",
     notes: "Ask to review the fan tattoo ",
     isFavorite: true,
     direction:
@@ -21,7 +21,7 @@ const tattoosMock: TattooStructure[] = [
     instagram: "@nissaco",
     city: "Osaka",
     style: "blackwork",
-    image: "https://i.ibb.co/PN9nDyb/nissaco-tattoo.webp",
+    image: "https://i.ibb.co/p4DsFsT/nissaco-tattoo.webp",
     notes: "write to him to know the location of his private studio",
     isFavorite: false,
     direction:
