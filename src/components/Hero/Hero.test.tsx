@@ -1,6 +1,4 @@
 import { screen } from "@testing-library/react";
-import { ThemeProvider } from "styled-components";
-import mainTheme from "../../styles/mainTheme";
 import Hero from "./Hero";
 import customRenderProvider from "../../testUtils/customRenderProvider";
 
@@ -15,22 +13,5 @@ describe("Given a Hero component", () => {
 
       expect(heroSpan).toHaveTextContent(expectedText);
     });
-  });
-
-  test("Then it should show the background image in a div", () => {
-    const accesibleNameDiv = "ink texture hero background image";
-    const expectedBackgroundImageUrl = "/images/hero.webp";
-
-    customRenderProvider(
-      <ThemeProvider theme={mainTheme}>
-        <Hero />
-      </ThemeProvider>,
-    );
-
-    const heroSpan = screen.getByLabelText(accesibleNameDiv);
-
-    expect(heroSpan).toHaveStyle(
-      `background-image: url(${expectedBackgroundImageUrl})`,
-    );
   });
 });

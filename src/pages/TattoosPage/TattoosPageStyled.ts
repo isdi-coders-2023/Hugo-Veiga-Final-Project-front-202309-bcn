@@ -6,6 +6,7 @@ const TattoosPageStyled = styled.main`
   text-align: center;
   align-items: center;
   justify-content: center;
+  padding-bottom: 2rem;
 
   .tattoos-page {
     &__title {
