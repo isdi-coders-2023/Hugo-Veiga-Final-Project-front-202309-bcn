@@ -19,7 +19,7 @@ describe("Given a FriendCard component", () => {
 
   test("Then it should show MissSita's image", () => {
     const missSitaTattoo = tattoosMock[0];
-    const expectedAltText = `Tatuaje de ${missSitaTattoo.artist}`;
+    const expectedAltText = `${missSitaTattoo.artist}'s tattoo`;
 
     customRenderProvider(<TattooCard tattoo={missSitaTattoo} />);
 
