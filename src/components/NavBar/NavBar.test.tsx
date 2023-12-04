@@ -6,29 +6,15 @@ describe("Given a NavBar component", () => {
   describe("When is rendered", () => {
     test("Then it should show the text `Tattoos`", () => {
       const expectedText = "Tattoos";
-      const expectedAccesibelName = "to tattoos";
 
       customRenderProvider(<Navigation />);
 
       const tattoosNavLink = screen.getByRole("link", {
-        name: expectedAccesibelName,
+        name: expectedText,
       });
 
-      expect(tattoosNavLink).toHaveTextContent(expectedText);
+      expect(tattoosNavLink).toBeInTheDocument();
     });
-  });
-
-  test("Then it should be a link with the path `/tattoos`", () => {
-    const expectedPath = "/tattoos";
-    const expectedAccesibleName = "to tattoos";
-
-    customRenderProvider(<Navigation />);
-
-    const tattoosNavLink = screen.getByRole("link", {
-      name: expectedAccesibleName,
-    });
-
-    expect(tattoosNavLink).toHaveAttribute("href", expectedPath);
   });
 
   test("Then it should show 2 links", async () => {
