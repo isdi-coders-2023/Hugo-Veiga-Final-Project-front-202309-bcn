@@ -1,5 +1,5 @@
 export interface TattooStructure {
-  id: string;
+  _id: string;
   artist: string;
   email: string;
   instagram: string;

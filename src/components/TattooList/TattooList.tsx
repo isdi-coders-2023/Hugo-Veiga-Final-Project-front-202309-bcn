@@ -1,16 +1,16 @@
-import { TattooStructure } from "../../store/features/tattoos/types";
+import { useAppSelector } from "../../store/hooks";
 import TattooCard from "../TattooCard/TattooCard";
 import TattooListStyled from "./TattooListStyled";
 
-interface TattooListProps {
-  tattoos: TattooStructure[];
-}
+const TattooList = (): React.ReactElement => {
+  const tattoos = useAppSelector((state) => {
+    return state.tattoosState.tattoos;
+  });
 
-const TattooList = ({ tattoos }: TattooListProps): React.ReactElement => {
   return (
     <TattooListStyled>
       {tattoos.map((tattoo) => (
-        <li key={tattoo.id}>
+        <li key={tattoo._id} className="tattoo-list__list-item">
           <TattooCard tattoo={tattoo} />
         </li>
       ))}
