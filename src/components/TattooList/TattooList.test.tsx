@@ -5,11 +5,13 @@ import tattoosMock from "../../mocks/tattoosMocks";
 
 describe("Given a TattooList component", () => {
   describe("When it receives ana array with tattoos", () => {
-    test("Then it should show a listitem with 'Nissaco' name in a span", () => {
-      const expectedArtistName = `Tattoo artist: ${tattoosMock[1].artist}`;
+    test("Then it should show a listitem with 'Nissaco' name in a heading", () => {
+      const expectedArtistName = tattoosMock[1].artist;
       customRenderProvider(<TattooList />);
 
-      const spanElement = screen.getByText(expectedArtistName);
+      const spanElement = screen.getByRole("heading", {
+        name: expectedArtistName,
+      });
 
       expect(spanElement).toBeInTheDocument();
     });

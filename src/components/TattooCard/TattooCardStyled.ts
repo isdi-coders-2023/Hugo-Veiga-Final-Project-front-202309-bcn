@@ -28,6 +28,10 @@ const TattooCardStyled = styled.article`
       align-items: flex-start;
     }
 
+    &__title {
+      font-size: 1.2rem;
+    }
+
     &__data {
       display: flex;
       align-items: start;

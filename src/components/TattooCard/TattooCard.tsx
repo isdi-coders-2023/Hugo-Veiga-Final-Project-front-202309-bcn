@@ -27,7 +27,7 @@ const TattooCard = ({
           />
         </div>
         <div className="tattooCard__info">
-          <span className="tattooCard__data">Tattoo artist: {artist}</span>
+          <h2 className="tattooCard__title">{artist}</h2>
           <span className="tattooCard__data">Style: {style}</span>
         </div>
         <div className="tattooCard__icons">

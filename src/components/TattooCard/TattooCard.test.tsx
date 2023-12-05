@@ -5,15 +5,17 @@ import tattoosMock from "../../mocks/tattoosMocks";
 
 describe("Given a FriendCard component", () => {
   describe("When is rendered with MissSitas's tattoo data", () => {
-    test("Then it should show MissSita artist name in a span", () => {
+    test("Then it should show `MissSita` artist name in a heading", () => {
       const missSitaTattoo = tattoosMock[0];
-      const expectedArtistName = `Tattoo artist: ${tattoosMock[0].artist}`;
+      const expectedArtistName = tattoosMock[0].artist;
 
       customRenderProvider(<TattooCard tattoo={missSitaTattoo} />);
 
-      const spanElement = screen.getByText(expectedArtistName);
+      const headingElement = screen.getByRole("heading", {
+        name: expectedArtistName,
+      });
 
-      expect(spanElement).toHaveTextContent(expectedArtistName);
+      expect(headingElement).toBeInTheDocument();
     });
   });
 
