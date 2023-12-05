@@ -1,9 +1,11 @@
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
 import { tattoosReducer } from "./features/tattoos/tattoosSlice";
+import { uiReducer } from "./features/ui/uiSlice";
 
 export const store = configureStore({
   reducer: {
     tattoosState: tattoosReducer,
+    uiState: uiReducer,
   },
 });
 
