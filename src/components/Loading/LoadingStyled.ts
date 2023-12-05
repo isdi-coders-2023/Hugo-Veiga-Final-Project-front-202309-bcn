@@ -1,14 +1,20 @@
 import styled from "styled-components";
 
 const LoadingStyled = styled.div`
+  width: 100%;
+  height: 100vh;
   display: flex;
+  position: fixed;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   gap: 1rem;
+  background-color: #f4f4f480;
 
   .loading__text {
     text-align: center;
+    font-size: 2rem;
+    font-weight: 500;
   }
 
   .laoding__spinner {
