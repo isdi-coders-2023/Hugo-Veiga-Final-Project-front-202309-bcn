@@ -1,7 +1,7 @@
 import { screen } from "@testing-library/react";
 import customRenderProvider from "../../testUtils/customRenderProvider";
 import TattooCard from "./TattooCard";
-import tattoosMock from "../../data/tattoosData";
+import tattoosMock from "../../mocks/tattoosMocks";
 
 describe("Given a FriendCard component", () => {
   describe("When is rendered with MissSitas's tattoo data", () => {
@@ -30,7 +30,6 @@ describe("Given a FriendCard component", () => {
 
   test("Then it should show an icon with the alt text `toggle favorite tattoo` ", () => {
     const missSitaTattoo = tattoosMock[0];
-
     const expectedAltText = `toggle favorite tattoo`;
 
     customRenderProvider(<TattooCard tattoo={missSitaTattoo} />);

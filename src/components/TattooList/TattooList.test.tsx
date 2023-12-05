@@ -1,18 +1,17 @@
 import { screen } from "@testing-library/react";
-import tattoosMock from "../../data/tattoosData";
 import customRenderProvider from "../../testUtils/customRenderProvider";
 import TattooList from "./TattooList";
+import tattoosMock from "../../mocks/tattoosMocks";
 
 describe("Given a TattooList component", () => {
   describe("When it receives ana array with tattoos", () => {
-    test("Then it should the tattoo cards in listitem", () => {
-      const expectedTattoosAmount = tattoosMock.length;
+    test("Then it should show a listitem with 'Nissaco' name in a span", () => {
+      const expectedArtistName = `Tattoo artist: ${tattoosMock[1].artist}`;
+      customRenderProvider(<TattooList />);
 
-      customRenderProvider(<TattooList tattoos={tattoosMock} />);
+      const spanElement = screen.getByText(expectedArtistName);
 
-      const actualTattoosAmount = screen.getAllByRole("listitem").length;
-
-      expect(actualTattoosAmount).toBe(expectedTattoosAmount);
+      expect(spanElement).toBeInTheDocument();
     });
   });
 });
