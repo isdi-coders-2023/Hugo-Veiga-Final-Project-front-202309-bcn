@@ -1,10 +1,12 @@
 import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { toast } from "react-toastify";
 import Hero from "../../components/Hero/Hero";
 import TattooList from "../../components/TattooList/TattooList";
 import useTattoosApi from "../../hooks/useTattoosApi";
 import TattoosPageStyled from "./TattoosPageStyled";
-import { useEffect } from "react";
 import { loadTattoosActionCreator } from "../../store/features/tattoos/tattoosSlice";
+import { hideLoadingActionCreator } from "../../store/features/ui/uiSlice";
 
 const TattoosPage = (): React.ReactElement => {
   const dispatch = useDispatch();
@@ -12,9 +14,23 @@ const TattoosPage = (): React.ReactElement => {
 
   useEffect(() => {
     (async () => {
-      const tattoos = await getTattoos();
-      if (tattoos) {
+      try {
+        const tattoos = await getTattoos();
+
         dispatch(loadTattoosActionCreator(tattoos.tattoos));
+      } catch (error) {
+        dispatch(hideLoadingActionCreator());
+
+        toast.error("Error loading tattoos", {
+          position: "top-center",
+          autoClose: 2000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        });
       }
     })();
   }, [dispatch, getTattoos]);
