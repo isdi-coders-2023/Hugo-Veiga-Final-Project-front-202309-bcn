@@ -12,9 +12,10 @@ const TattoosPage = (): React.ReactElement => {
 
   useEffect(() => {
     (async () => {
-      const { tattoos } = await getTattoos();
-
-      dispatch(loadTattoosActionCreator(tattoos));
+      const tattoos = await getTattoos();
+      if (tattoos) {
+        dispatch(loadTattoosActionCreator(tattoos.tattoos));
+      }
     })();
   }, [dispatch, getTattoos]);
   return (
