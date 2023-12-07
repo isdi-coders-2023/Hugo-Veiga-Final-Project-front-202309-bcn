@@ -15,8 +15,18 @@ const tattoosSlice = createSlice({
     ): TattoosStateStructure => {
       return { ...currentState, tattoos: action.payload };
     },
+
+    deleteTattoo: (currentState, action: PayloadAction<string>) => ({
+      ...currentState,
+      tattoos: currentState.tattoos.filter(
+        (tattoo) => tattoo._id !== action.payload,
+      ),
+    }),
   },
 });
 
-export const { loadTattoos: loadTattoosActionCreator } = tattoosSlice.actions;
+export const {
+  loadTattoos: loadTattoosActionCreator,
+  deleteTattoo: deleteTattooActionCreator,
+} = tattoosSlice.actions;
 export const tattoosReducer = tattoosSlice.reducer;
