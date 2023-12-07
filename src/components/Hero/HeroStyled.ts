@@ -5,7 +5,6 @@ const HeroStyled = styled.div`
   flex-direction: column;
   background-image: url("/images/hero.webp");
   height: 100vh;
-  width: 100vw;
   align-self: center;
   background-repeat: no-repeat;
   background-size: cover;
