@@ -4,7 +4,7 @@ import StyledButton from "./ButtonStyled";
 interface ButtonProps {
   disabled: boolean;
   type: "reset" | "submit" | "button" | undefined;
-  text: string;
+  text?: string;
   className?: string;
   actionOnClick?: () => void;
 }

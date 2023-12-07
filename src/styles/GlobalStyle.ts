@@ -50,6 +50,8 @@ button{
   border: none;
   font: inherit;
   cursor: pointer;
+  background: inherit;
+
 }
 `;
 
