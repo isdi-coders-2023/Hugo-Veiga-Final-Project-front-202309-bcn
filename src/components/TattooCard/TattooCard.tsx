@@ -1,4 +1,7 @@
+import useTattoosApi from "../../hooks/useTattoosApi";
+import { deleteTattooActionCreator } from "../../store/features/tattoos/tattoosSlice";
 import { TattooStructure } from "../../store/features/tattoos/types";
+import { useAppDispatch } from "../../store/hooks";
 import TattooCardStyled from "./TattooCardStyled";
 
 interface TattooCardProps {
@@ -6,8 +9,15 @@ interface TattooCardProps {
 }
 
 const TattooCard = ({
-  tattoo: { artist, image, style },
+  tattoo: { artist, image, style, _id },
 }: TattooCardProps): React.ReactElement => {
+  const dispatch = useAppDispatch();
+  const { deleteTattoo } = useTattoosApi();
+
+  const deleteTattooId = () => {
+    deleteTattoo(_id);
+    dispatch(deleteTattooActionCreator(_id));
+  };
   return (
     <TattooCardStyled>
       <div className="tattooCard">
@@ -47,14 +57,19 @@ const TattooCard = ({
               height="30"
             />
           </a>
-          <a href="/">
+          <button
+            disabled={false}
+            type={undefined}
+            onClick={deleteTattooId}
+            className="tattooCard__button"
+          >
             <img
               src="/images/trash-delete.svg"
               alt="delete tattoo"
               width="30"
               height="30"
             />
-          </a>
+          </button>
         </div>
       </div>
     </TattooCardStyled>

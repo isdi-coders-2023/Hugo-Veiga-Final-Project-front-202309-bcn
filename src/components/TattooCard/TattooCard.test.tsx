@@ -1,7 +1,10 @@
-import { screen } from "@testing-library/react";
+import { screen, waitFor } from "@testing-library/react";
 import customRenderProvider from "../../testUtils/customRenderProvider";
 import TattooCard from "./TattooCard";
 import tattoosMock from "../../mocks/tattoosMocks";
+import userEvent from "@testing-library/user-event";
+import { server } from "../../mocks/msw/node";
+import handlersError from "../../mocks/msw/handlersError";
 
 describe("Given a FriendCard component", () => {
   describe("When is rendered with MissSitas's tattoo data", () => {
@@ -39,5 +42,43 @@ describe("Given a FriendCard component", () => {
     const imageElement = screen.getByAltText(expectedAltText);
 
     expect(imageElement).toBeInTheDocument();
+  });
+});
+
+describe("When the delete button is clicked on 'MissSita' tattoo card", () => {
+  test("Then it should show a feedback message 'Tattoo deleted succesfully!'", async () => {
+    const missSitaTattoo = tattoosMock[0];
+    const expectedFeedbackMessage = "Tattoo deleted succesfully!";
+    const expectedButtonText = "delete tattoo";
+
+    customRenderProvider(<TattooCard tattoo={missSitaTattoo} />);
+
+    const button = screen.getByRole("button", { name: expectedButtonText });
+
+    await userEvent.click(button);
+
+    await waitFor(() => {
+      expect(screen.getByText(expectedFeedbackMessage)).toBeInTheDocument();
+    });
+  });
+
+  describe("When the delete button is clicked on 'MissSita' tattoo card and there is an error deleting the tattoo", () => {
+    test("Then it should show a feedback message 'There was an error deleting the tattoo'", async () => {
+      server.use(...handlersError);
+
+      const missSitaTattoo = tattoosMock[0];
+      const expectedFeedbackMessage = "There was an error deleting the tattoo";
+      const expectedButtonText = "delete tattoo";
+
+      customRenderProvider(<TattooCard tattoo={missSitaTattoo} />);
+
+      const button = screen.getByRole("button", { name: expectedButtonText });
+
+      await userEvent.click(button);
+
+      await waitFor(() => {
+        expect(screen.getByText(expectedFeedbackMessage)).toBeInTheDocument();
+      });
+    });
   });
 });

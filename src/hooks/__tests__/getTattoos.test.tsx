@@ -1,7 +1,7 @@
 import { renderHook } from "@testing-library/react";
-import useTattoosApi from "./useTattoosApi";
-import tattoosMock from "../mocks/tattoosMocks";
-import { customProvider } from "../testUtils/customProvider";
+import useTattoosApi from "../useTattoosApi";
+import tattoosMock from "../../mocks/tattoosMocks";
+import { customProvider } from "../../testUtils/customProvider";
 
 describe("Given a useTattoosApi custom hook", () => {
   describe("When it calls its method getTattoos", () => {
