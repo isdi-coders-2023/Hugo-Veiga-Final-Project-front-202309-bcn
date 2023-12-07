@@ -2,7 +2,7 @@ import { TattooStructure } from "../store/features/tattoos/types";
 
 const tattoosMock: TattooStructure[] = [
   {
-    _id: "6564db84aa515e7823b31e56",
+    _id: "6571d83d81f419ec2f6fc543",
     artist: "MissSita",
     email: "hello.misssita@gmail.com",
     instagram: "@misssita",

@@ -5,9 +5,9 @@ import { customProvider } from "../../testUtils/customProvider";
 
 describe("Given a useTattoosApi custom hook", () => {
   describe("When it calls its method deleteTattoo method with a tattoo id", () => {
-    test("Then it should delete 'MissSitas' tattoo giving the feedback message `The tattoo has been deleted`", async () => {
+    test("Then it should delete 'MissSitas' tattoo", async () => {
       const expectedTattooId = tattoosMock[0]._id;
-      const expectedResponse = "The tattoo has been deleted";
+      const expectedResponse = {};
 
       const {
         result: {
@@ -17,7 +17,7 @@ describe("Given a useTattoosApi custom hook", () => {
 
       const response = await deleteTattoo(expectedTattooId);
 
-      expect(response).toStrictEqual({ message: expectedResponse });
+      expect(response).toStrictEqual(expectedResponse);
     });
   });
 });
