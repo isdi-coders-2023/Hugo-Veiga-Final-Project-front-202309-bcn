@@ -14,3 +14,15 @@ export interface TattooStructure {
 export interface TattoosStateStructure {
   tattoos: TattooStructure[];
 }
+
+export interface TattooStructureWithoutId {
+  artist: string;
+  email: string;
+  instagram: string;
+  city: string;
+  direction: string;
+  style: string;
+  image: string;
+  notes: string;
+  isFavorite: boolean;
+}
