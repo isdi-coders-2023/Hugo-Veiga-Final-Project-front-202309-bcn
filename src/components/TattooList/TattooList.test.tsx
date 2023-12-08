@@ -1,7 +1,7 @@
 import { screen } from "@testing-library/react";
 import customRenderProvider from "../../testUtils/customRenderProvider";
 import TattooList from "./TattooList";
-import tattoosMock from "../../mocks/tattoosMocks";
+import tattoosMock from "../../mocks/tattoosMock";
 
 describe("Given a TattooList component", () => {
   describe("When it receives ana array with tattoos", () => {

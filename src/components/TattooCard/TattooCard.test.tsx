@@ -1,7 +1,7 @@
 import { screen, waitFor } from "@testing-library/react";
 import customRenderProvider from "../../testUtils/customRenderProvider";
 import TattooCard from "./TattooCard";
-import tattoosMock from "../../mocks/tattoosMocks";
+import tattoosMock from "../../mocks/tattoosMock";
 import userEvent from "@testing-library/user-event";
 import { server } from "../../mocks/msw/node";
 import handlersError from "../../mocks/msw/handlersError";

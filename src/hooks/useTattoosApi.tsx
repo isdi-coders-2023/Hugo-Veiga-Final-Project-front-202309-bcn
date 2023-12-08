@@ -1,7 +1,10 @@
 import { useCallback } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
-import { TattooStructure } from "../store/features/tattoos/types";
+import {
+  TattooStructure,
+  TattooStructureWithoutId,
+} from "../store/features/tattoos/types";
 import { useAppDispatch } from "../store/hooks";
 import {
   hideLoadingActionCreator,
@@ -68,7 +71,53 @@ const useTattoosApi = () => {
     [dispatch],
   );
 
-  return { getTattoos, deleteTattoo };
+  const addTattoo = useCallback(
+    async (
+      newTattoo: TattooStructureWithoutId,
+    ): Promise<TattooStructureWithoutId | undefined> => {
+      try {
+        dispatch(showLoadingActionCreator());
+
+        const {
+          data: { tattoo },
+        } = await axios.post<{ tattoo: TattooStructureWithoutId }>(
+          `/tattoos/add`,
+          newTattoo,
+        );
+
+        dispatch(hideLoadingActionCreator());
+
+        toast.success("The tattoo has been created succesfully!", {
+          position: "top-center",
+          autoClose: 2000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        });
+
+        return tattoo;
+      } catch {
+        dispatch(hideLoadingActionCreator());
+
+        toast.error("There was an error creating the tattoo", {
+          position: "top-center",
+          autoClose: 2000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        });
+      }
+    },
+    [dispatch],
+  );
+
+  return { getTattoos, deleteTattoo, addTattoo };
 };
 
 export default useTattoosApi;
