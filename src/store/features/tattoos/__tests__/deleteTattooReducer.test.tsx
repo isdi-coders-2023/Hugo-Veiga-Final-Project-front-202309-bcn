@@ -1,4 +1,4 @@
-import tattoosMocks from "../../../../mocks/tattoosMocks";
+import tattoosMocks from "../../../../mocks/tattoosMock";
 import { deleteTattooActionCreator, tattoosReducer } from "../tattoosSlice";
 import { TattoosStateStructure } from "../types";
 
