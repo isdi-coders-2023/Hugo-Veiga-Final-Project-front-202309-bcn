@@ -3,14 +3,20 @@ import styled from "styled-components";
 const TattooFormStyled = styled.form`
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  text-align: center;
-  gap: 1.8rem;
-  padding: 20px;
-  max-width: 600px;
+  align-items: center;
 
   .tattoo-form {
+    &__wrapper {
+      gap: 1.8rem;
+      padding: 20px;
+      max-width: 600px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      text-align: center;
+    }
+
     &__control {
       display: flex;
       flex-direction: column;
@@ -40,6 +46,13 @@ const TattooFormStyled = styled.form`
       align-items: flex-start;
       align-self: stretch;
       resize: none;
+    }
+
+    &__button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: ${({ theme }) => theme.color.secondary};
     }
   }
 `;
