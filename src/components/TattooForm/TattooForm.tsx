@@ -25,7 +25,7 @@ const TattooForm = (): React.ReactElement => {
       </label>
       <label className="tattoo-form__control">
         {" "}
-        Instagram
+        Instagram (url)
         <input
           type="text"
           className="tattoo-form__input"
@@ -45,7 +45,7 @@ const TattooForm = (): React.ReactElement => {
       </label>
       <label className="tattoo-form__control">
         {" "}
-        Direction
+        Direction (url)
         <input
           type="text"
           className="tattoo-form__input"

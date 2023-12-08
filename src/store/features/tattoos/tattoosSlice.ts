@@ -22,11 +22,20 @@ const tattoosSlice = createSlice({
         (tattoo) => tattoo._id !== action.payload,
       ),
     }),
+
+    addTattoo: (
+      currentState,
+      action: PayloadAction<TattooStructure>,
+    ): TattoosStateStructure => ({
+      ...currentState,
+      tattoos: [...currentState.tattoos, action.payload],
+    }),
   },
 });
 
 export const {
   loadTattoos: loadTattoosActionCreator,
   deleteTattoo: deleteTattooActionCreator,
+  addTattoo: addTattooActionCreator,
 } = tattoosSlice.actions;
 export const tattoosReducer = tattoosSlice.reducer;
