@@ -1,88 +1,152 @@
+import { useState } from "react";
+import { TattooStructureWithoutId } from "../../store/features/tattoos/types";
 import TattooFormStyled from "./TattooFormStyled";
+import Button from "../Button/Button";
 
-const TattooForm = (): React.ReactElement => {
+interface TattooFormProps {
+  onSubmit: (tattooData: TattooStructureWithoutId) => void;
+}
+
+const TattooForm = ({ onSubmit }: TattooFormProps): React.ReactElement => {
+  const initialTattooFormState: TattooStructureWithoutId = {
+    artist: "",
+    city: "",
+    direction: "",
+    email: "",
+    image: "",
+    instagram: "",
+    notes: "",
+    style: "",
+    isFavorite: false,
+  };
+
+  const [tattooData, setTattooData] = useState(initialTattooFormState);
+
+  const onChangeForm = (
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    setTattooData({
+      ...tattooData,
+      [event.target.id]: event.target.value,
+    });
+  };
+
+  const handleOnSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event?.preventDefault();
+    onSubmit(tattooData);
+  };
+
   return (
-    <TattooFormStyled>
-      <label className="tattoo-form__control">
-        {" "}
-        Artist
-        <input
-          type="text"
-          className="tattoo-form__input"
-          required
-          placeholder="MissSita"
-        />
-      </label>
-      <label className="tattoo-form__control">
-        {" "}
-        Email
-        <input
-          type="text"
-          className="tattoo-form__input"
-          required
-          placeholder="hello.misssita@gmail.com"
-        />
-      </label>
-      <label className="tattoo-form__control">
-        {" "}
-        Instagram (url)
-        <input
-          type="text"
-          className="tattoo-form__input"
-          required
-          placeholder={"www.instagram.com/misssita"}
-        />
-      </label>
-      <label className="tattoo-form__control">
-        {" "}
-        City
-        <input
-          type="text"
-          className="tattoo-form__input"
-          required
-          placeholder="Barcelona"
-        />
-      </label>
-      <label className="tattoo-form__control">
-        {" "}
-        Direction (url)
-        <input
-          type="text"
-          className="tattoo-form__input"
-          required
-          placeholder={"www.google.com/maps/direction"}
-        />
-      </label>
-      <label className="tattoo-form__control">
-        {" "}
-        Style
-        <input
-          type="text"
-          className="tattoo-form__input"
-          required
-          placeholder={"blackwork"}
-        />
-      </label>
-      <label className="tattoo-form__control">
-        {" "}
-        Image
-        <input
-          type="text"
-          className="tattoo-form__input"
-          required
-          placeholder={"www.google.com/image/tattoo.jpg"}
-        />
-      </label>
-      <label className="tattoo-form__control">
-        {" "}
-        Notes (optional)
-        <textarea
-          className="tattoo-form__text-area"
-          placeholder={"schedule appointment via email"}
-          cols={30}
-          rows={10}
-        />
-      </label>
+    <TattooFormStyled
+      className="tattoo-form"
+      autoComplete="off"
+      onSubmit={handleOnSubmit}
+    >
+      {" "}
+      <div className="tattoo-form__wrapper">
+        <label className="tattoo-form__control">
+          {" "}
+          Artist
+          <input
+            id="artist"
+            type="text"
+            className="tattoo-form__input"
+            required
+            placeholder="MissSita"
+            onChange={onChangeForm}
+          />
+        </label>
+        <label className="tattoo-form__control">
+          {" "}
+          Email
+          <input
+            id="email"
+            type="email"
+            className="tattoo-form__input"
+            required
+            placeholder="hello.misssita@gmail.com"
+            onChange={onChangeForm}
+          />
+        </label>
+        <label className="tattoo-form__control">
+          {" "}
+          Instagram (url)
+          <input
+            id="instagram"
+            type="url"
+            className="tattoo-form__input"
+            required
+            placeholder={"www.instagram.com/misssita"}
+            onChange={onChangeForm}
+          />
+        </label>
+        <label className="tattoo-form__control">
+          {" "}
+          City
+          <input
+            id="city"
+            type="text"
+            className="tattoo-form__input"
+            required
+            placeholder="Barcelona"
+            onChange={onChangeForm}
+          />
+        </label>
+        <label className="tattoo-form__control">
+          {" "}
+          Direction (url)
+          <input
+            id="direction"
+            type="url"
+            className="tattoo-form__input"
+            required
+            placeholder={"www.google.com/maps/direction"}
+            onChange={onChangeForm}
+          />
+        </label>
+        <label className="tattoo-form__control">
+          {" "}
+          Style
+          <input
+            id="style"
+            type="text"
+            className="tattoo-form__input"
+            required
+            placeholder={"blackwork"}
+            onChange={onChangeForm}
+          />
+        </label>
+        <label className="tattoo-form__control">
+          {" "}
+          Image (url)
+          <input
+            id="image"
+            type="url"
+            className="tattoo-form__input"
+            required
+            placeholder={"www.google.com/image/tattoo.jpg"}
+            onChange={onChangeForm}
+          />
+        </label>
+        <label className="tattoo-form__control">
+          {" "}
+          Notes (optional)
+          <textarea
+            id="notes"
+            className="tattoo-form__text-area"
+            placeholder={"schedule appointment via email"}
+            cols={30}
+            rows={10}
+            onChange={onChangeForm}
+          />
+        </label>
+      </div>
+      <Button
+        className="tattoo-form__button"
+        disabled={false}
+        type={"submit"}
+        text="Add"
+      />
     </TattooFormStyled>
   );
 };

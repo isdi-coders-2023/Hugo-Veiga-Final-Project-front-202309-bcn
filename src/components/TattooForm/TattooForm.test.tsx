@@ -5,6 +5,7 @@ import customRenderProvider from "../../testUtils/customRenderProvider";
 describe("Given a FormTattoo component", () => {
   describe("When is rendered", () => {
     test("Then it should show the form labels 'artist', 'email', 'instagram (url)', 'city', 'email', 'direction', 'style', 'image (url)', `notes (optional)`", () => {
+      const onSubmitMock = vi.fn();
       const labelTags = [
         "Artist",
         "Email",
@@ -13,11 +14,11 @@ describe("Given a FormTattoo component", () => {
         "Email",
         "Direction (url)",
         "Style",
-        "Image",
+        "Image (url)",
         "Notes (optional)",
       ];
 
-      customRenderProvider(<TattooForm />);
+      customRenderProvider(<TattooForm onSubmit={onSubmitMock} />);
 
       labelTags.forEach((labelTag) => {
         const field = screen.getByLabelText(labelTag);
