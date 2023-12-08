@@ -4,6 +4,7 @@ const TattooForm = (): React.ReactElement => {
   return (
     <TattooFormStyled>
       <label className="tattoo-form__control">
+        {" "}
         Artist
         <input
           type="text"
@@ -13,6 +14,7 @@ const TattooForm = (): React.ReactElement => {
         />
       </label>
       <label className="tattoo-form__control">
+        {" "}
         Email
         <input
           type="text"
@@ -22,6 +24,7 @@ const TattooForm = (): React.ReactElement => {
         />
       </label>
       <label className="tattoo-form__control">
+        {" "}
         Instagram
         <input
           type="text"
@@ -31,6 +34,7 @@ const TattooForm = (): React.ReactElement => {
         />
       </label>
       <label className="tattoo-form__control">
+        {" "}
         City
         <input
           type="text"
@@ -40,6 +44,7 @@ const TattooForm = (): React.ReactElement => {
         />
       </label>
       <label className="tattoo-form__control">
+        {" "}
         Direction
         <input
           type="text"
@@ -49,6 +54,7 @@ const TattooForm = (): React.ReactElement => {
         />
       </label>
       <label className="tattoo-form__control">
+        {" "}
         Style
         <input
           type="text"
@@ -58,6 +64,7 @@ const TattooForm = (): React.ReactElement => {
         />
       </label>
       <label className="tattoo-form__control">
+        {" "}
         Image
         <input
           type="text"
@@ -67,6 +74,7 @@ const TattooForm = (): React.ReactElement => {
         />
       </label>
       <label className="tattoo-form__control">
+        {" "}
         Notes (optional)
         <textarea
           className="tattoo-form__text-area"
