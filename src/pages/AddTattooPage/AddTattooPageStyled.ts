@@ -8,6 +8,7 @@ const AddTattooPageStyled = styled.main`
   margin-right: 1rem;
   margin-left: 1rem;
   align-items: center;
+  padding-bottom: 4rem;
 
   .addTattoo-page {
     display: flex;
