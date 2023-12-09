@@ -33,6 +33,7 @@ const TattooForm = ({ onSubmit }: TattooFormProps): React.ReactElement => {
 
   const handleOnSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event?.preventDefault();
+
     onSubmit(tattooData);
   };
 
@@ -54,6 +55,7 @@ const TattooForm = ({ onSubmit }: TattooFormProps): React.ReactElement => {
             required
             placeholder="MissSita"
             onChange={onChangeForm}
+            value={tattooData.artist}
           />
         </label>
         <label className="tattoo-form__control">
@@ -66,6 +68,7 @@ const TattooForm = ({ onSubmit }: TattooFormProps): React.ReactElement => {
             required
             placeholder="hello.misssita@gmail.com"
             onChange={onChangeForm}
+            value={tattooData.email}
           />
         </label>
         <label className="tattoo-form__control">
@@ -78,6 +81,7 @@ const TattooForm = ({ onSubmit }: TattooFormProps): React.ReactElement => {
             required
             placeholder={"www.instagram.com/misssita"}
             onChange={onChangeForm}
+            value={tattooData.instagram}
           />
         </label>
         <label className="tattoo-form__control">
@@ -90,6 +94,7 @@ const TattooForm = ({ onSubmit }: TattooFormProps): React.ReactElement => {
             required
             placeholder="Barcelona"
             onChange={onChangeForm}
+            value={tattooData.city}
           />
         </label>
         <label className="tattoo-form__control">
@@ -102,6 +107,7 @@ const TattooForm = ({ onSubmit }: TattooFormProps): React.ReactElement => {
             required
             placeholder={"www.google.com/maps/direction"}
             onChange={onChangeForm}
+            value={tattooData.direction}
           />
         </label>
         <label className="tattoo-form__control">
@@ -114,6 +120,7 @@ const TattooForm = ({ onSubmit }: TattooFormProps): React.ReactElement => {
             required
             placeholder={"blackwork"}
             onChange={onChangeForm}
+            value={tattooData.style}
           />
         </label>
         <label className="tattoo-form__control">
@@ -126,6 +133,7 @@ const TattooForm = ({ onSubmit }: TattooFormProps): React.ReactElement => {
             required
             placeholder={"www.google.com/image/tattoo.jpg"}
             onChange={onChangeForm}
+            value={tattooData.image}
           />
         </label>
         <label className="tattoo-form__control">
@@ -138,6 +146,7 @@ const TattooForm = ({ onSubmit }: TattooFormProps): React.ReactElement => {
             cols={30}
             rows={10}
             onChange={onChangeForm}
+            value={tattooData.notes}
           />
         </label>
       </div>
