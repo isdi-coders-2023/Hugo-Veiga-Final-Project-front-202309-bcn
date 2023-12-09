@@ -74,13 +74,13 @@ const useTattoosApi = () => {
   const addTattoo = useCallback(
     async (
       newTattoo: TattooStructureWithoutId,
-    ): Promise<TattooStructureWithoutId | undefined> => {
+    ): Promise<TattooStructure | undefined> => {
       try {
         dispatch(showLoadingActionCreator());
 
         const {
           data: { tattoo },
-        } = await axios.post<{ tattoo: TattooStructureWithoutId }>(
+        } = await axios.post<{ tattoo: TattooStructure }>(
           `/tattoos/add`,
           newTattoo,
         );
