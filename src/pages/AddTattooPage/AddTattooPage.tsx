@@ -1,4 +1,3 @@
-import { useNavigate } from "react-router-dom";
 import TattooForm from "../../components/TattooForm/TattooForm";
 import { useAppDispatch } from "../../store/hooks";
 import AddTattooPageStyled from "./AddTattooPageStyled";
@@ -9,7 +8,6 @@ import { addTattooActionCreator } from "../../store/features/tattoos/tattoosSlic
 const AddTattooPage = (): React.ReactElement => {
   const { addTattoo } = useTattoosApi();
   const dispatch = useAppDispatch();
-  const navigate = useNavigate();
 
   const onSubmit = async (tattooData: TattooStructureWithoutId) => {
     const newTattoo = await addTattoo(tattooData);
@@ -17,9 +15,8 @@ const AddTattooPage = (): React.ReactElement => {
     if (newTattoo) {
       dispatch(addTattooActionCreator(newTattoo));
     }
-
-    navigate("/tattoos");
   };
+
   return (
     <>
       <AddTattooPageStyled className="addTattoo-page">
