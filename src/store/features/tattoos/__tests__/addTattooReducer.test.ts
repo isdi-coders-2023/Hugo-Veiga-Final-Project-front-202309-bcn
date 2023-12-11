@@ -7,10 +7,12 @@ describe("Given a tattoosSlice reducer", () => {
     test("Then it should return a list of tattoo with the new tattoo", () => {
       const initialState: TattoosStateStructure = {
         tattoos: tattoosMock,
+        tattoo: tattoosMock[0],
       };
 
       const expectedNewTattoosState: TattoosStateStructure = {
         tattoos: [...tattoosMock, tattoosMock[0]],
+        tattoo: tattoosMock[0],
       };
 
       const addTattooAction = addTattooActionCreator(tattoosMock[0]);
