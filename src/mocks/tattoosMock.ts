@@ -5,7 +5,7 @@ const tattoosMock: TattooStructure[] = [
     _id: "6571d83d81f419ec2f6fc543",
     artist: "MissSita",
     email: "hello.misssita@gmail.com",
-    instagram: "@misssita",
+    instagram: "https://www.instagram.com/misssita",
     city: "Barcelona",
     style: "blackwork",
     image: "https://i.ibb.co/W2DBhvK/miss-Sita-tattoo-1.webp",

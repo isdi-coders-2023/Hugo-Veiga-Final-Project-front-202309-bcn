@@ -85,8 +85,6 @@ const useTattoosApi = () => {
           newTattoo,
         );
 
-        dispatch(hideLoadingActionCreator());
-
         toast.success("The tattoo has been created succesfully!", {
           position: "top-center",
           autoClose: 2000,
@@ -97,6 +95,8 @@ const useTattoosApi = () => {
           progress: undefined,
           theme: "dark",
         });
+
+        dispatch(hideLoadingActionCreator());
 
         return tattoo;
       } catch {

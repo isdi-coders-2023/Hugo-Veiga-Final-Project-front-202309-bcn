@@ -5,7 +5,7 @@ const apiUrl = import.meta.env.VITE_API_URL;
 
 export const handlers = [
   http.get(`${apiUrl}/tattoos`, () => {
-    return HttpResponse.json(tattoosMock);
+    return HttpResponse.json({ tattoos: tattoosMock });
   }),
   http.delete(`${apiUrl}/tattoos/delete/6571d83d81f419ec2f6fc543`, () => {
     return HttpResponse.json({});

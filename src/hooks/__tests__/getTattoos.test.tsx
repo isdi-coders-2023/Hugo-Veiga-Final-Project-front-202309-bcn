@@ -16,7 +16,7 @@ describe("Given a useTattoosApi custom hook", () => {
 
       const actualTattoos = await getTattoos();
 
-      expect(actualTattoos).toStrictEqual(expectedTattoos);
+      expect(actualTattoos).toStrictEqual({ tattoos: expectedTattoos });
     });
   });
 });

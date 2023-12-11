@@ -9,6 +9,8 @@ interface TattooFormProps {
 }
 
 const TattooForm = ({ onSubmit }: TattooFormProps): React.ReactElement => {
+  const navigate = useNavigate();
+
   const initialTattooFormState: TattooStructureWithoutId = {
     artist: "",
     city: "",
@@ -21,7 +23,9 @@ const TattooForm = ({ onSubmit }: TattooFormProps): React.ReactElement => {
     isFavorite: false,
   };
 
-  const [tattooData, setTattooData] = useState(initialTattooFormState);
+  const [tattooData, setTattooData] = useState<TattooStructureWithoutId>(
+    initialTattooFormState,
+  );
 
   const onChangeForm = (
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -32,14 +36,12 @@ const TattooForm = ({ onSubmit }: TattooFormProps): React.ReactElement => {
     });
   };
 
-  const navigate = useNavigate();
-
   const handleOnSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event?.preventDefault();
+    event.preventDefault();
 
     onSubmit(tattooData);
 
-    navigate("/tattoos");
+    navigate("/");
 
     scrollTo(0, 0);
   };
