@@ -34,6 +34,7 @@ const TattoosPage = (): React.ReactElement => {
       }
     })();
   }, [dispatch, getTattoos]);
+
   return (
     <>
       <Hero />
