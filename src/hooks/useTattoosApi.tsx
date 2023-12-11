@@ -117,7 +117,37 @@ const useTattoosApi = () => {
     [dispatch],
   );
 
-  return { getTattoos, deleteTattoo, addTattoo };
+  const getTattoo = useCallback(
+    async (_id: string): Promise<TattooStructure | undefined> => {
+      try {
+        dispatch(showLoadingActionCreator());
+
+        const {
+          data: { tattooById },
+        } = await axios.get<{ tattooById: TattooStructure }>(`/tattoos/${_id}`);
+
+        dispatch(hideLoadingActionCreator());
+
+        return tattooById;
+      } catch {
+        dispatch(hideLoadingActionCreator());
+
+        toast.error("There was an error getting the tattoo", {
+          position: "top-center",
+          autoClose: 2000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        });
+      }
+    },
+    [dispatch],
+  );
+
+  return { getTattoos, deleteTattoo, addTattoo, getTattoo };
 };
 
 export default useTattoosApi;
