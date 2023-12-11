@@ -6,12 +6,10 @@ const AddTattooPage = (): React.ReactElement => {
   const { addTattoo } = useTattoosApi();
 
   return (
-    <>
-      <AddTattooPageStyled className="addTattoo-page">
-        <h1 className="addTattoo-page__title">Add a new tattoo</h1>
-        <TattooForm onSubmit={addTattoo} />
-      </AddTattooPageStyled>
-    </>
+    <AddTattooPageStyled className="addTattoo-page">
+      <h1 className="addTattoo-page__title">Add a new tattoo</h1>
+      <TattooForm onSubmit={addTattoo} />
+    </AddTattooPageStyled>
   );
 };
 
