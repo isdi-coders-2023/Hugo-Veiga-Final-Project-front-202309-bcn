@@ -14,7 +14,7 @@ export const getMockedStore = () => {
   const mockedStore = configureStore({
     reducer: { tattoosState: tattoosReducer, uiState: uiReducer },
     preloadedState: {
-      tattoosState: { tattoos: tattoosMock },
+      tattoosState: { tattoos: tattoosMock, tattoo: tattoosMock[0] },
       uiState: { isLoading: false },
     },
   });

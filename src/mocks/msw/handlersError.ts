@@ -8,6 +8,9 @@ const handlersError = [
     HttpResponse.error(),
   ),
   http.post(`${apiUrl}/tattoos/add`, () => HttpResponse.error()),
+  http.get(`${apiUrl}/tattoos/6571d83d81f419ec2f6fc543`, () =>
+    HttpResponse.error(),
+  ),
 ];
 
 export default handlersError;
