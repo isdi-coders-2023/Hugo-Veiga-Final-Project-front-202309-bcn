@@ -50,7 +50,7 @@ describe("Given a useTattoosApi custom hook", () => {
   });
 
   describe("When it calls its addTattoo method with MissSita's tattoo data and the response error", () => {
-    test("Then it should show the feedback message 'There was an error creating the tattoo'", async () => {
+    test("Then it shouldn't return any tattoo'", async () => {
       server.use(...handlersError);
       const expectedNewTattoo = tattooMockWithoutId[0];
 
