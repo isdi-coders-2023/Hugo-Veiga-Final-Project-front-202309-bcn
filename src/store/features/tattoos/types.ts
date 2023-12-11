@@ -13,6 +13,7 @@ export interface TattooStructure {
 
 export interface TattoosStateStructure {
   tattoos: TattooStructure[];
+  tattoo?: TattooStructure;
 }
 
 export interface TattooStructureWithoutId {
