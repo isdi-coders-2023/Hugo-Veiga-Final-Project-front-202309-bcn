@@ -3,6 +3,18 @@ import { TattoosStateStructure, TattooStructure } from "./types";
 
 const initialTattoosState: TattoosStateStructure = {
   tattoos: [],
+  tattoo: {
+    _id: "",
+    artist: "",
+    email: "",
+    instagram: "",
+    city: "",
+    direction: "",
+    style: "",
+    image: "",
+    notes: "",
+    isFavorite: false,
+  },
 };
 
 const tattoosSlice = createSlice({
@@ -30,6 +42,14 @@ const tattoosSlice = createSlice({
       ...currentState,
       tattoos: [...currentState.tattoos, action.payload],
     }),
+
+    loadTattoo: (
+      currentState,
+      action: PayloadAction<TattooStructure>,
+    ): TattoosStateStructure => ({
+      ...currentState,
+      tattoo: action.payload,
+    }),
   },
 });
 
@@ -37,5 +57,6 @@ export const {
   loadTattoos: loadTattoosActionCreator,
   deleteTattoo: deleteTattooActionCreator,
   addTattoo: addTattooActionCreator,
+  loadTattoo: loadTattooActionCreator,
 } = tattoosSlice.actions;
 export const tattoosReducer = tattoosSlice.reducer;
