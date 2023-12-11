@@ -1,4 +1,3 @@
-import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { toast } from "react-toastify";
 import Hero from "../../components/Hero/Hero";
@@ -7,9 +6,10 @@ import useTattoosApi from "../../hooks/useTattoosApi";
 import TattoosPageStyled from "./TattoosPageStyled";
 import { loadTattoosActionCreator } from "../../store/features/tattoos/tattoosSlice";
 import { hideLoadingActionCreator } from "../../store/features/ui/uiSlice";
+import { useAppDispatch } from "../../store/hooks";
 
 const TattoosPage = (): React.ReactElement => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const { getTattoos } = useTattoosApi();
 
   useEffect(() => {

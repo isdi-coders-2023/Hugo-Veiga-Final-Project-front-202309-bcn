@@ -3,6 +3,8 @@ import TattooForm from "./TattooForm";
 import customRenderProvider from "../../testUtils/customRenderProvider";
 import userEvent from "@testing-library/user-event";
 import tattooMockWithoutId from "../../mocks/tattooMockWithoutId";
+import handlersError from "../../mocks/msw/handlersError";
+import { server } from "../../mocks/msw/node";
 
 describe("Given a FormTattoo component", () => {
   const onSubmitMock = vi.fn();
@@ -56,6 +58,7 @@ describe("Given a FormTattoo component", () => {
 
   describe("When it is rendered with all TattooForm fields completed and the add button is clicked", () => {
     test("Then it should call onSubmit function", async () => {
+      server.use(...handlersError);
       const labelTags = [
         "Artist",
         "Email",
