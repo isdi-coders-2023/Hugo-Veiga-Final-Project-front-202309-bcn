@@ -1,5 +1,6 @@
 import { http, HttpResponse } from "msw";
 import tattoosMock from "../tattoosMock";
+import tattooModifiedMock from "../tattooModifiedMock";
 
 const apiUrl = import.meta.env.VITE_API_URL;
 
@@ -16,4 +17,10 @@ export const handlers = [
   http.get(`${apiUrl}/tattoos/6571d83d81f419ec2f6fc543`, () => {
     return HttpResponse.json({ tattoo: tattoosMock[0] });
   }),
+  http.patch(
+    `${import.meta.env.VITE_API_URL}/tattoos/6571d83d81f419ec2f6fc543`,
+    () => {
+      return HttpResponse.json({ tattoo: tattooModifiedMock });
+    },
+  ),
 ];
