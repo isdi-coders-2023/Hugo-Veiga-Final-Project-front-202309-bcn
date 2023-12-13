@@ -9,4 +9,8 @@ export interface UseTattoosApiStructure {
   deleteTattoo: (tattooId: string) => Promise<TattoosStateStructure | void>;
   addTattoo: () => Promise<TattooStructureWithoutId | void>;
   getTattooById: () => Promise<TattooStructure>;
+  modifyTattoo: (
+    id: string,
+    modifiedTattoo: TattooStructureWithoutId,
+  ) => Promise<TattooStructure>;
 }
