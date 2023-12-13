@@ -14,6 +14,6 @@ export const handlers = [
     return HttpResponse.json({ tattoo: tattoosMock[0] });
   }),
   http.get(`${apiUrl}/tattoos/6571d83d81f419ec2f6fc543`, () => {
-    return HttpResponse.json({ tattooById: tattoosMock[0] });
+    return HttpResponse.json({ tattoo: tattoosMock[0] });
   }),
 ];

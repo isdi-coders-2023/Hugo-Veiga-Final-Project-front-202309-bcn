@@ -3,8 +3,8 @@ import { loadTattooActionCreator, tattoosReducer } from "../tattoosSlice";
 import { TattoosStateStructure } from "../types";
 
 describe("Given a tattoosSlice reducer", () => {
-  describe("When it receives and empty state of selected and load selected bike action with the bike 'Orbea Orca M31ETEAM 23'", () => {
-    test("Then it should return the new state with the bike 'Orbea Orca M31ETEAM 23'", () => {
+  describe("When it receives and empty state of a tattoo and load tattoo action with `MissSita's tattoo data", () => {
+    test("Then it should return a new state with `MissSita's tattoo data ", () => {
       const initialState: TattoosStateStructure = {
         tattoos: tattoosMock,
         tattoo: {

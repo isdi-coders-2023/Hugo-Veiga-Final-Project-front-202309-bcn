@@ -7,7 +7,21 @@ describe("Given a tattoosSlice reducer", () => {
     test("Then it should return the tattoo list without MissSita's tattoo", () => {
       const expectedArtistName = tattoosMocks[0].artist;
       const expectedTattooId = tattoosMocks[0]._id;
-      const initialState: TattoosStateStructure = { tattoos: tattoosMocks };
+      const initialState: TattoosStateStructure = {
+        tattoos: tattoosMocks,
+        tattoo: {
+          _id: "",
+          artist: "",
+          email: "",
+          instagram: "",
+          city: "",
+          direction: "",
+          style: "",
+          image: "",
+          notes: "",
+          isFavorite: false,
+        },
+      };
 
       const currentTattoosState = tattoosReducer(
         initialState,
