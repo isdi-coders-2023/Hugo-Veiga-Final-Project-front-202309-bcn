@@ -124,7 +124,7 @@ const useTattoosApi = () => {
   );
 
   const getTattoo = useCallback(
-    async (_id: string): Promise<TattooStructure> => {
+    async (_id: string): Promise<TattooStructure | undefined> => {
       try {
         dispatch(showLoadingActionCreator());
 
@@ -148,7 +148,6 @@ const useTattoosApi = () => {
     async (id: string, modifiedTattoo: TattooStructureWithoutId) => {
       try {
         dispatch(showLoadingActionCreator());
-
         const {
           data: { tattoo },
         } = await axios.patch<{ tattoo: TattooStructure }>(
@@ -171,8 +170,10 @@ const useTattoosApi = () => {
 
         navigate("/");
 
+        scrollTo(0, 0);
+
         return tattoo;
-      } catch {
+      } catch (error) {
         dispatch(hideLoadingActionCreator());
 
         toast.error("Error modifying the tattoo", {

@@ -9,6 +9,7 @@ const NavBarStyled = styled.nav`
 
   .active {
     color: ${({ theme }) => theme.color.main};
+    font-weight: 700;
   }
 `;
 

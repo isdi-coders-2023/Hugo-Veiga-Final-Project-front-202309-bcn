@@ -40,7 +40,7 @@ describe("Given a useTattoosApi custom hook", () => {
       const feedbackMessage = "Error modifying the tattoo";
 
       customRenderProviderWithMemoryRouter(<App />, [
-        "/tattoos/modify/6571d83d81f419ec2f6fc543",
+        "/modify-tattoo/6571d83d81f419ec2f6fc543",
       ]);
 
       const {
