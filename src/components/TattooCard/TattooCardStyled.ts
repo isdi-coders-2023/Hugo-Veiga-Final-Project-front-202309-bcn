@@ -18,6 +18,10 @@ const TattooCardStyled = styled.article`
     &__image {
       border-radius: 10px;
       object-fit: cover;
+
+      &__wrapper {
+        min-width: 280px;
+      }
     }
 
     &__info {
