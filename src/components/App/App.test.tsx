@@ -60,16 +60,16 @@ describe("Given an App component", () => {
     });
 
     describe("When is rendered and the users clicks the detail icon of `MissSita`'s tattoo", () => {
-      test("Then it should render a heading with `MissSita` text on it", async () => {
-        server.use(...handlers);
-        const expectedHeading = "MissSita";
+      test("Then it should render a span with `Email: hello.misssita@gmail.com` text on it", async () => {
+        server.use(handlers[3]);
+        const expectedSpan = "Email: hello.misssita@gmail.com";
 
         customRenderProvider(<App />);
 
-        const actualHeading = screen.getByText(expectedHeading);
+        const actualSpan = await screen.findByText(expectedSpan);
 
         await waitFor(() => {
-          expect(actualHeading).toBeInTheDocument();
+          expect(actualSpan).toHaveTextContent(expectedSpan);
         });
       });
     });
