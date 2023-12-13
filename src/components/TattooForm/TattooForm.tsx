@@ -2,15 +2,12 @@ import { useState } from "react";
 import { TattooStructureWithoutId } from "../../store/features/tattoos/types";
 import TattooFormStyled from "./TattooFormStyled";
 import Button from "../Button/Button";
-import { useNavigate } from "react-router-dom";
 
 interface TattooFormProps {
   onSubmit: (tattooData: TattooStructureWithoutId) => void;
 }
 
 const TattooForm = ({ onSubmit }: TattooFormProps): React.ReactElement => {
-  const navigate = useNavigate();
-
   const initialTattooFormState: TattooStructureWithoutId = {
     artist: "",
     city: "",
@@ -40,10 +37,6 @@ const TattooForm = ({ onSubmit }: TattooFormProps): React.ReactElement => {
     event.preventDefault();
 
     onSubmit(tattooData);
-
-    navigate("/");
-
-    scrollTo(0, 0);
   };
 
   return (

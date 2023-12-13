@@ -5,9 +5,14 @@ import { tattoosReducer } from "../store/features/tattoos/tattoosSlice";
 import { configureStore } from "@reduxjs/toolkit";
 import { uiReducer } from "../store/features/ui/uiSlice";
 import tattoosMock from "../mocks/tattoosMock";
+import { MemoryRouter } from "react-router-dom";
 
 export const customProvider = ({ children }: PropsWithChildren) => {
-  return <Provider store={store}>{children}</Provider>;
+  return (
+    <MemoryRouter>
+      <Provider store={store}>{children}</Provider>
+    </MemoryRouter>
+  );
 };
 
 export const getMockedStore = () => {

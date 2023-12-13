@@ -10,9 +10,11 @@ import {
   hideLoadingActionCreator,
   showLoadingActionCreator,
 } from "../store/features/ui/uiSlice";
+import { useNavigate } from "react-router-dom";
 
 const useTattoosApi = () => {
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   axios.defaults.baseURL = import.meta.env.VITE_API_URL;
 
@@ -98,6 +100,10 @@ const useTattoosApi = () => {
 
         dispatch(hideLoadingActionCreator());
 
+        navigate("/tattoos");
+
+        scrollTo(0, 0);
+
         return tattoo;
       } catch {
         dispatch(hideLoadingActionCreator());
@@ -114,7 +120,7 @@ const useTattoosApi = () => {
         });
       }
     },
-    [dispatch],
+    [dispatch, navigate],
   );
 
   const getTattoo = useCallback(
