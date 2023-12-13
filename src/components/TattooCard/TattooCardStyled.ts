@@ -34,12 +34,14 @@ const TattooCardStyled = styled.article`
 
     &__title {
       font-size: 1.2rem;
+      text-transform: capitalize;
     }
 
     &__data {
       display: flex;
       align-items: start;
       justify-content: center;
+      text-transform: lowercase;
     }
 
     &__toogleFavorite {
