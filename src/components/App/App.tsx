@@ -7,6 +7,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import AddTattooPage from "../../pages/AddTattooPage/AddTattooPage";
 import Footer from "../Footer/Footer";
+import TattooDetailPage from "../../pages/TattooDetailPage/TattooDetailPage";
 
 const App = (): React.ReactElement => {
   const uiState = useAppSelector((state) => state.uiState);
@@ -20,6 +21,7 @@ const App = (): React.ReactElement => {
         <Route path="/" element={<Navigate to="/tattoos" />} />
         <Route path="/tattoos" element={<TattoosPage />} />
         <Route path="/add-tattoo" element={<AddTattooPage />} />
+        <Route path="/tattoos/:_id" element={<TattooDetailPage />} />
       </Routes>
       <Footer />
     </>

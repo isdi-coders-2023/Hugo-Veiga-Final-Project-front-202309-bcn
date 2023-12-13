@@ -18,7 +18,7 @@ const TattooDetailPage = (): React.ReactElement => {
       try {
         const tattoo = await getTattoo(_id as string);
 
-        dispatch(loadTattooActionCreator(tattoo!));
+        dispatch(loadTattooActionCreator(tattoo));
       } catch (error) {
         dispatch(hideLoadingActionCreator());
 

@@ -118,7 +118,7 @@ const useTattoosApi = () => {
   );
 
   const getTattoo = useCallback(
-    async (_id: string): Promise<TattooStructure | void> => {
+    async (_id: string): Promise<TattooStructure> => {
       try {
         dispatch(showLoadingActionCreator());
 
