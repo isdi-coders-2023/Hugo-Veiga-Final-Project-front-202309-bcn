@@ -53,14 +53,14 @@ const TattooCard = ({
               height="30"
             />
           </NavLink>
-          <a href="/">
+          <NavLink to={`/tattoos/modify/${_id}`}>
             <img
               src="/images/edit.svg"
-              alt="to edit tattoo form"
+              alt={`to ${artist}'s edit tattoo form`}
               width="30"
               height="30"
             />
-          </a>
+          </NavLink>
           <button
             disabled={false}
             type={undefined}
