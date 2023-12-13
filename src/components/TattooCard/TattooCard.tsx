@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import useTattoosApi from "../../hooks/useTattoosApi";
 import { deleteTattooActionCreator } from "../../store/features/tattoos/tattoosSlice";
 import { TattooStructure } from "../../store/features/tattoos/types";
@@ -16,18 +17,21 @@ const TattooCard = ({
 
   const deleteTattooId = () => {
     deleteTattoo(_id);
+
     dispatch(deleteTattooActionCreator(_id));
   };
   return (
     <TattooCardStyled>
       <div className="tattooCard">
-        <img
-          className="tattooCard__image"
-          src={image}
-          alt={`${artist}'s tattoo`}
-          width="280"
-          height="222"
-        />
+        <a href={`/${_id}`} className="tattooCard__image__wrapper">
+          <img
+            className="tattooCard__image"
+            src={image}
+            alt={`${artist}'s tattoo`}
+            width="280"
+            height="222"
+          />
+        </a>
         <div className="tattooCard_toogleFavorite">
           <img
             src="/images/heart-not-favorite.svg"
@@ -41,14 +45,14 @@ const TattooCard = ({
           <span className="tattooCard__data">Style: {style}</span>
         </div>
         <div className="tattooCard__icons">
-          <a href="/">
+          <NavLink to={`/tattoos/${_id}`}>
             <img
               src="/images/detail-info.svg"
-              alt="to taattoo detail page"
+              alt={`to ${artist}'s tattoo detail page`}
               width="30"
               height="30"
             />
-          </a>
+          </NavLink>
           <a href="/">
             <img
               src="/images/edit.svg"

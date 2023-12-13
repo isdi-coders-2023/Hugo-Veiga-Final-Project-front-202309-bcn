@@ -9,6 +9,18 @@ describe("Given a tattoosSlice reducer", () => {
 
       const currentTattoosState: TattoosStateStructure = {
         tattoos: emptyState,
+        tattoo: {
+          _id: "",
+          artist: "",
+          email: "",
+          instagram: "",
+          city: "",
+          direction: "",
+          style: "",
+          image: "",
+          notes: "",
+          isFavorite: false,
+        },
       };
 
       const loadTattoosAction = loadTattoosActionCreator(tattoosMock);
