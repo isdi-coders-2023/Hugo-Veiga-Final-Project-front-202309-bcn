@@ -23,7 +23,7 @@ const TattooCard = ({
   return (
     <TattooCardStyled>
       <div className="tattooCard">
-        <a href={`/${_id}`} className="tattooCard__image__wrapper">
+        <a href={`/tattoos/${_id}`} className="tattooCard__image__wrapper">
           <img
             className="tattooCard__image"
             src={image}

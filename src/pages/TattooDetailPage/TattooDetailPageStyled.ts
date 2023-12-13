@@ -39,6 +39,7 @@ const TattooDetailPageStyled = styled.main`
 
     &__title {
       font-size: 1.2rem;
+      text-transform: uppercase;
     }
 
     &__data {
@@ -46,27 +47,39 @@ const TattooDetailPageStyled = styled.main`
       align-items: start;
       justify-content: flex-start;
       width: 100%;
+
+      &--style {
+        text-transform: lowercase;
+      }
+
+      &--city {
+        text-transform: capitalize;
+      }
+
+      &--email {
+        text-transform: lowercase;
+      }
     }
 
     &__notes {
       display: flex;
       align-items: start;
-      &__wrapper {
+
+      &--wrapper {
         display: flex;
         align-items: start;
         flex-direction: column;
         justify-content: flex-start;
         gap: 0.5rem;
       }
-      &__tag {
-      }
 
-      &__text {
+      &--text {
         width: 280px;
         display: flex;
         justify-content: flex-start;
         text-align: start;
         padding-top: 5px;
+        text-transform: capitalize;
       }
     }
 
