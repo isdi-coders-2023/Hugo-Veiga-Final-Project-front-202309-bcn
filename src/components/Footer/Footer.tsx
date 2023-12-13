@@ -4,7 +4,7 @@ const Footer = (): React.ReactElement => {
   return (
     <FooterStyled className="footer">
       <img
-        src="/favicon.ico"
+        src="/images/logo.svg"
         alt="web logo"
         width={25}
         height={25}
@@ -12,7 +12,7 @@ const Footer = (): React.ReactElement => {
       />
       <span className="footer__info">Copyright © 2023</span>
       <img
-        src="/favicon.ico"
+        src="/images/logo.svg"
         alt="web logo"
         width={25}
         height={25}
