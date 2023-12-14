@@ -1,14 +1,21 @@
-import { useState } from "react";
-import { TattooStructureWithoutId } from "../../store/features/tattoos/types";
+import { useEffect, useState } from "react";
+import {
+  TattooStructure,
+  TattooStructureWithoutId,
+} from "../../store/features/tattoos/types";
 import TattooFormStyled from "./TattooFormStyled";
 import Button from "../Button/Button";
 
 interface TattooFormProps {
   onSubmit: (tattooData: TattooStructureWithoutId) => void;
+  selectedTattoo?: TattooStructure;
 }
 
-const TattooForm = ({ onSubmit }: TattooFormProps): React.ReactElement => {
-  const initialTattooFormState: TattooStructureWithoutId = {
+const TattooForm = ({
+  onSubmit,
+  selectedTattoo,
+}: TattooFormProps): React.ReactElement => {
+  let initialTattooFormState: TattooStructureWithoutId = {
     artist: "",
     city: "",
     direction: "",
@@ -20,9 +27,19 @@ const TattooForm = ({ onSubmit }: TattooFormProps): React.ReactElement => {
     isFavorite: false,
   };
 
+  if (selectedTattoo) {
+    initialTattooFormState = selectedTattoo;
+  }
+
   const [tattooData, setTattooData] = useState<TattooStructureWithoutId>(
     initialTattooFormState,
   );
+
+  useEffect(() => {
+    if (selectedTattoo) {
+      setTattooData({ ...selectedTattoo });
+    }
+  }, [selectedTattoo]);
 
   const onChangeForm = (
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -37,6 +54,8 @@ const TattooForm = ({ onSubmit }: TattooFormProps): React.ReactElement => {
     event.preventDefault();
 
     onSubmit(tattooData);
+
+    scrollTo(0, 0);
   };
 
   return (

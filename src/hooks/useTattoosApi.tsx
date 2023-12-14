@@ -124,7 +124,7 @@ const useTattoosApi = () => {
   );
 
   const getTattoo = useCallback(
-    async (_id: string): Promise<TattooStructure> => {
+    async (_id: string): Promise<TattooStructure | undefined> => {
       try {
         dispatch(showLoadingActionCreator());
 
@@ -144,7 +144,54 @@ const useTattoosApi = () => {
     [dispatch],
   );
 
-  return { getTattoos, deleteTattoo, addTattoo, getTattoo };
+  const modifyTattoo = useCallback(
+    async (id: string, modifiedTattoo: TattooStructureWithoutId) => {
+      try {
+        dispatch(showLoadingActionCreator());
+        const {
+          data: { tattoo },
+        } = await axios.patch<{ tattoo: TattooStructure }>(
+          `/tattoos/${id}`,
+          modifiedTattoo,
+        );
+
+        dispatch(hideLoadingActionCreator());
+
+        toast.success("The tattoo has been modified succesfully", {
+          position: "top-center",
+          autoClose: 2000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        });
+
+        navigate("/");
+
+        scrollTo(0, 0);
+
+        return tattoo;
+      } catch (error) {
+        dispatch(hideLoadingActionCreator());
+
+        toast.error("Error modifying the tattoo", {
+          position: "top-center",
+          autoClose: 2000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        });
+      }
+    },
+    [dispatch, navigate],
+  );
+
+  return { getTattoos, deleteTattoo, addTattoo, getTattoo, modifyTattoo };
 };
 
 export default useTattoosApi;

@@ -50,6 +50,13 @@ const tattoosSlice = createSlice({
       ...currentState,
       tattoo: action.payload,
     }),
+
+    modifyTattoo: (currentState, action: PayloadAction<TattooStructure>) => ({
+      ...currentState,
+      tattoos: currentState.tattoos.map((tattoo) =>
+        tattoo._id !== action.payload._id ? tattoo : action.payload,
+      ),
+    }),
   },
 });
 
@@ -58,5 +65,6 @@ export const {
   deleteTattoo: deleteTattooActionCreator,
   addTattoo: addTattooActionCreator,
   loadTattoo: loadTattooActionCreator,
+  modifyTattoo: modifyTattooActionCreator,
 } = tattoosSlice.actions;
 export const tattoosReducer = tattoosSlice.reducer;
