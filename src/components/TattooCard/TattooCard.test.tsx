@@ -49,7 +49,7 @@ describe("When the delete button is clicked on 'MissSita' tattoo card", () => {
   test("Then it should show a feedback message 'Tattoo deleted succesfully!'", async () => {
     const missSitaTattoo = tattoosMock[0];
     const expectedFeedbackMessage = "Tattoo deleted succesfully!";
-    const expectedButtonText = "delete tattoo";
+    const expectedButtonText = "delete MissSita's tattoo";
 
     customRenderProvider(<TattooCard tattoo={missSitaTattoo} />);
 
@@ -68,7 +68,7 @@ describe("When the delete button is clicked on 'MissSita' tattoo card", () => {
 
       const missSitaTattoo = tattoosMock[0];
       const expectedFeedbackMessage = "There was an error deleting the tattoo";
-      const expectedButtonText = "delete tattoo";
+      const expectedButtonText = "delete MissSita's tattoo";
 
       customRenderProvider(<TattooCard tattoo={missSitaTattoo} />);
 

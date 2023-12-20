@@ -69,7 +69,7 @@ const TattooCard = ({
           >
             <img
               src="/images/trash-delete.svg"
-              alt="delete tattoo"
+              alt={`delete ${artist}'s tattoo`}
               width="30"
               height="30"
             />
