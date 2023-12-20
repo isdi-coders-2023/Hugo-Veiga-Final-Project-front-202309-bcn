@@ -5,10 +5,10 @@ const TattooDetailPageStyled = styled.main`
   flex-direction: column;
   text-align: center;
   align-items: center;
-  justify-content: center;
   padding-bottom: 2rem;
+  height: 100vh;
 
-  .tattooDetail-page__notes__wrapper:has(> p:empty) {
+  .tattooDetail-page__notes--wrapper:has(> p:empty) {
     display: none;
   }
 
@@ -25,8 +25,7 @@ const TattooDetailPageStyled = styled.main`
 
     &__image {
       border-radius: 10px;
-      height: 100%;
-      width: 100%;
+      object-fit: cover;
     }
 
     &__info {
@@ -47,6 +46,7 @@ const TattooDetailPageStyled = styled.main`
       align-items: start;
       justify-content: flex-start;
       width: 100%;
+      gap: 5px;
 
       &--style {
         text-transform: lowercase;
@@ -79,7 +79,7 @@ const TattooDetailPageStyled = styled.main`
         justify-content: flex-start;
         text-align: start;
         padding-top: 5px;
-        text-transform: capitalize;
+        text-transform: lowercase;
       }
     }
 

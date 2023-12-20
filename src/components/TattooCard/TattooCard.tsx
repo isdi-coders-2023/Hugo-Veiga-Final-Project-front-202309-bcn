@@ -23,7 +23,7 @@ const TattooCard = ({
   return (
     <TattooCardStyled>
       <div className="tattooCard">
-        <a href={`/tattoos/${_id}`} className="tattooCard__image__wrapper">
+        <a href={`/tattoo/${_id}`} className="tattooCard__image__wrapper">
           <img
             className="tattooCard__image"
             src={image}
@@ -45,7 +45,7 @@ const TattooCard = ({
           <span className="tattooCard__data">Style: {style}</span>
         </div>
         <div className="tattooCard__icons">
-          <NavLink to={`/tattoos/${_id}`}>
+          <NavLink to={`/tattoo/${_id}`}>
             <img
               src="/images/detail-info.svg"
               alt={`to ${artist}'s tattoo detail page`}

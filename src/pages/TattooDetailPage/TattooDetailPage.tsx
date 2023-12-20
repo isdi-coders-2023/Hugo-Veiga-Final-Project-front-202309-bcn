@@ -58,14 +58,23 @@ const TattooDetailPage = (): React.ReactElement => {
           />
         </div>
         <div className="tattooDetail-page__info">
-          <span className="tattooDetail-page__data--style">
-            Style: {tattooById.style}
+          <span className="tattooDetail-page__data">
+            Style:{" "}
+            <span className="tattooDetail-page__data--style">
+              {tattooById.style}
+            </span>
           </span>
-          <span className="tattooDetail-page__data--city">
-            City: {tattooById.city}
+          <span className="tattooDetail-page__data">
+            City:{" "}
+            <span className="tattooDetail-page__data--city">
+              {tattooById.city}
+            </span>
           </span>
-          <span className="tattooDetail-page__data--email">
-            Email: {tattooById.email}
+          <span className="tattooDetail-page__data">
+            Email:{" "}
+            <span className="tattooDetail-page__data--email">
+              {tattooById.email}
+            </span>
           </span>
           <div className="tattooDetail-page__notes--wrapper">
             <span className="tattooDetail-page__notes--tag">Notes:</span>

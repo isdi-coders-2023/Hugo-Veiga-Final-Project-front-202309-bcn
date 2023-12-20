@@ -36,12 +36,12 @@ describe("Given an App component", () => {
     });
 
     describe("When is rendered and the users clicks the detail icon of `MissSita`'s tattoo", () => {
-      test("Then it should render a span with `Email: hello.misssita@gmail.com` text on it", async () => {
+      test("Then it should render a span with `hello.misssita@gmail.com` text on it", async () => {
         server.use(handlers[3]);
-        const expectedSpan = "Email: hello.misssita@gmail.com";
+        const expectedSpan = "hello.misssita@gmail.com";
 
         customRenderProviderWithMemoryRouter(<App />, [
-          "/tattoos/6571d83d81f419ec2f6fc543",
+          "/tattoo/6571d83d81f419ec2f6fc543",
         ]);
 
         const actualSpan = await screen.findByText(expectedSpan);
@@ -58,7 +58,7 @@ describe("Given an App component", () => {
         const expectedMessage = "There was an error getting the tattoo";
 
         customRenderProviderWithMemoryRouter(<App />, [
-          "/tattoos/6571d83d81f419ec2f6fc543",
+          "/tattoo/6571d83d81f419ec2f6fc543",
         ]);
 
         const actualMessage = await screen.findAllByText(expectedMessage);

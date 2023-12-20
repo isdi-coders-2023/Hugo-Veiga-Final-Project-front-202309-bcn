@@ -22,7 +22,7 @@ const App = (): React.ReactElement => {
         <Route path="/" element={<Navigate to="/tattoos" />} />
         <Route path="/tattoos" element={<TattoosPage />} />
         <Route path="/add-tattoo" element={<AddTattooPage />} />
-        <Route path="/tattoos/:_id" element={<TattooDetailPage />} />
+        <Route path="/tattoo/:_id" element={<TattooDetailPage />} />
         <Route path="/modify-tattoo/:_id" element={<ModifyTattooPage />} />
       </Routes>
       <Footer />
