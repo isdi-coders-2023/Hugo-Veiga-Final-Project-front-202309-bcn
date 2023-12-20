@@ -11,24 +11,25 @@ import {
 import ModifyTattooPageStyled from "./ModifyTattooPageStyled";
 
 const ModifyTattooPage = (): React.ReactElement => {
+  const { _id } = useParams();
   const { modifyTattoo, getTattoo } = useTattoosApi();
   const { tattoo } = useAppSelector((state) => state.tattoosState);
   const dispatch = useAppDispatch();
-  const { _id } = useParams();
 
   const updateTattoo = async (modifiedTattoo: TattooStructureWithoutId) => {
     const updatedTattoo = await modifyTattoo(tattoo._id, modifiedTattoo);
 
     dispatch(modifyTattooActionCreator(updatedTattoo!));
   };
-
   useEffect(() => {
     (async () => {
-      const tattoo = await getTattoo(_id as string);
+      if (_id) {
+        const tattoo = await getTattoo(_id);
 
-      dispatch(loadTattooActionCreator(tattoo!));
+        dispatch(loadTattooActionCreator(tattoo!));
 
-      return tattoo;
+        return tattoo;
+      }
     })();
   }, [dispatch, getTattoo, _id]);
 

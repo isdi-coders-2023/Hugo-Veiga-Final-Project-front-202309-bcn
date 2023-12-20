@@ -128,7 +128,7 @@ describe("Given an App component", () => {
   describe("When it is rendered on the TattoosPage and the user clicks on the `MissSita`'s tattoo and clicks the add button", () => {
     test("Then it should go to the ModifyTattooPage and show a label with `Instagram (url)` on it", async () => {
       const expectedLabel = "Artist";
-      const expectedValue = "MissSita";
+      const expectedInputValue = "MissSita";
       const expectedButtonText = "to MissSita's edit tattoo form";
 
       customRenderProviderWithMemoryRouter(<App />, ["/tattoos"]);
@@ -139,13 +139,11 @@ describe("Given an App component", () => {
 
       await userEvent.click(button);
 
-      const label = await screen.findByRole("textbox", {
+      const input = await screen.findByRole("textbox", {
         name: expectedLabel,
       });
 
-      await waitFor(() => {
-        expect(label).toHaveValue(expectedValue);
-      });
+      expect(input).toHaveValue(expectedInputValue);
     });
   });
 
