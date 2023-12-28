@@ -132,6 +132,8 @@ const useTattoosApi = () => {
           data: { tattoo },
         } = await axios.get<{ tattoo: TattooStructure }>(`/tattoos/${_id}`);
 
+        scrollTo(0, 0);
+
         dispatch(hideLoadingActionCreator());
 
         return tattoo;
