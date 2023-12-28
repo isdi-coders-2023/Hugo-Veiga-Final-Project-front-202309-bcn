@@ -7,6 +7,12 @@ const TattooListStyled = styled.ul`
   padding-right: 1rem;
   padding-left: 1rem;
   align-items: center;
+
+  @media (min-width: 1000px) {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 4rem;
+  }
 `;
 
 export default TattooListStyled;

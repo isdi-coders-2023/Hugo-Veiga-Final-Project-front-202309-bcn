@@ -39,6 +39,10 @@ const TattooDetailPageStyled = styled.main`
     &__title {
       font-size: 1.2rem;
       text-transform: uppercase;
+
+      @media (min-width: 1000px) {
+        font-size: 1.4rem;
+      }
     }
 
     &__data {

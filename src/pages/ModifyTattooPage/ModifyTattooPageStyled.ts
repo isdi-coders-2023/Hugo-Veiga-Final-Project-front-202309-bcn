@@ -25,6 +25,10 @@ const ModifyTattooPageSTyled = styled.main`
       flex-direction: column;
       justify-content: center;
       font-weight: 600;
+
+      @media (min-width: 1000px) {
+        font-size: 1.4rem;
+      }
     }
   }
 `;
